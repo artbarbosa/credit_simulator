@@ -18,13 +18,7 @@ class InputValuePage extends StatelessWidget {
         child: Column(
           children: [
             TextFormField(
-              validator: (text) {
-                if (!RegExp(r'^\d{3}\.\d{3}\.\d{3}-\d{2}$')
-                    .hasMatch(text ?? '')) {
-                  return 'Digite um valor válido!';
-                }
-                return null;
-              },
+              validator: controller.validateAmount,
               inputFormatters: [
                 CurrencyValueMask(symbol: r'$', decimal: ',', cents: '.'),
               ],
@@ -34,12 +28,12 @@ class InputValuePage extends StatelessWidget {
             ),
             ElevatedButton(
               onPressed: () {
-                controller.onSavedValue();
+                controller.onSavedAmount();
                 Navigator.of(context).pushNamed(
                   '/inputOptions',
                   arguments: InputOptionsArguments(
                       user: arguments.user,
-                      amount: controller.amountCreditModel),
+                      amountCreditModel: controller.amountCreditModel),
                 );
               },
               child: const Text('Continuar'),

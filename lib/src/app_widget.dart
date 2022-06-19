@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'core/shared/consts/app_colors_const.dart';
 import 'core/shared/routers/routers.dart';
 
 class AppWidget extends StatelessWidget {
@@ -8,9 +9,7 @@ class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: ThemeData(primaryColor: AppColorsConst.onBackground),
       initialRoute: Routers.initialRoute,
       onGenerateRoute: Routers.generateRoutes,
     );

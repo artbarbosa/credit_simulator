@@ -3,7 +3,7 @@ import 'package:rispar_credit_simulator/src/modules/credit/submodules/simulator_
 import '../../../../../../core/user/model/user_model.dart';
 
 class InputOptionsArguments {
-  InputOptionsArguments({required this.amount, required this.user});
+  InputOptionsArguments({required this.amountCreditModel, required this.user});
   final UserModel user;
-  final AmountCreditModel amount;
+  final AmountCreditModel amountCreditModel;
 }

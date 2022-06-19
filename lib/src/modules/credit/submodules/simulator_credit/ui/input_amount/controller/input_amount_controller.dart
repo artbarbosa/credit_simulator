@@ -7,10 +7,10 @@ class InputAmountController {
   late AmountCreditModel amountCreditModel;
   final formKey = GlobalKey<FormState>();
 
-  String? validateValue(double? value) =>
-      value?.isNaN ?? true ? "O nome não pode ser vazio" : null;
+  String? validateAmount(String? value) =>
+      value?.isEmpty ?? true ? "O nome não pode ser vazio" : null;
 
-  void onSavedValue() {
+  void onSavedAmount() {
     final form = formKey.currentState;
     if (form!.validate()) {
       amountCreditModel = AmountCreditModel(amount: value);
