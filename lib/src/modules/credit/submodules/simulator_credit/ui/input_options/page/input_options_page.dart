@@ -42,6 +42,7 @@ class _InputOptionsPageState extends State<InputOptionsPage> {
               controller.onChangeLtv(value);
             },
           ),
+          ElevatedButton(onPressed: () {}, child: const Text('Continuar'))
         ],
       ),
     );
