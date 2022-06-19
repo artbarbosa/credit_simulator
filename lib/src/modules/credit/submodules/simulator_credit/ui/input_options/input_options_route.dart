@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'input_options_arguments.dart';
+import 'page/input_options_page.dart';
 
 class InputOptionsRoute extends StatelessWidget {
   const InputOptionsRoute({Key? key, required this.arguments})
@@ -8,6 +9,6 @@ class InputOptionsRoute extends StatelessWidget {
   final InputOptionsArguments arguments;
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return InputOptionsPage(arguments: arguments);
   }
 }

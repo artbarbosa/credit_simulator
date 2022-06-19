@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import '../../../models/value_credit_model.dart';
+import '../../../models/amount_credit_model.dart';
 
-class InputValueController {
+class InputAmountController {
   double value = 0;
-  late ValueCreditModel valueCreditModel;
+  late AmountCreditModel amountCreditModel;
   final formKey = GlobalKey<FormState>();
 
   String? validateValue(double? value) =>
@@ -13,7 +13,7 @@ class InputValueController {
   void onSavedValue() {
     final form = formKey.currentState;
     if (form!.validate()) {
-      valueCreditModel = ValueCreditModel(value: value);
+      amountCreditModel = AmountCreditModel(amount: value);
     }
   }
 }

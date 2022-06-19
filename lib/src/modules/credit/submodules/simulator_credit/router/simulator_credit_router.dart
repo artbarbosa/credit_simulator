@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 import '../ui/credit_result/route/credit_result_arguments.dart';
 import '../ui/credit_result/route/credit_result_route.dart';
-import '../ui/inputOptions/input_options_arguments.dart';
-import '../ui/inputOptions/input_options_route.dart';
+import '../ui/input_amount/route/input_amount_arguments.dart';
+import '../ui/input_amount/route/input_amount_route.dart';
+import '../ui/input_options/input_options_arguments.dart';
+import '../ui/input_options/input_options_route.dart';
 import '../ui/input_user/route/input_user_route.dart';
-import '../ui/input_value/route/input_value_arguments.dart';
-import '../ui/input_value/route/input_value_route.dart';
 
 class SimulatorCreditRouter extends StatelessWidget {
   const SimulatorCreditRouter({
@@ -28,8 +28,8 @@ class SimulatorCreditRouter extends StatelessWidget {
         if (settings.name == '/inputValue') {
           return MaterialPageRoute(
             builder: (context) {
-              return InputValueRoute(
-                arguments: settings.arguments as InputValueArguments,
+              return InputAmountRoute(
+                arguments: settings.arguments as InputAmountArguments,
               );
             },
           );

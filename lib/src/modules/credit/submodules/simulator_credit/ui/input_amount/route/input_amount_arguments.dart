@@ -1,6 +1,6 @@
 import '../../../../../../../core/user/model/user_model.dart';
 
-class InputValueArguments {
-  InputValueArguments({required this.user});
+class InputAmountArguments {
+  InputAmountArguments({required this.user});
   UserModel user;
 }

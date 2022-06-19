@@ -21,7 +21,7 @@ class SimulatorCreditDatasource implements ISimulatorCreditDatasource {
     final response = await httpClient.post(
       ApiConst.apiURL(),
       data: ApiConst.creditSimulatorPostData(
-        name: postCreditModel.user.fullName,
+        fullname: postCreditModel.user.fullName,
         email: postCreditModel.user.email,
         ltv: postCreditModel.ltv,
         amount: postCreditModel.amount,

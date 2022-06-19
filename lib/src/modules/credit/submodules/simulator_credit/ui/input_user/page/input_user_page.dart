@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../input_value/route/input_value_arguments.dart';
+import '../../input_amount/route/input_amount_arguments.dart';
 import '../controller/input_user_controller.dart';
 
 class InputUserPage extends StatelessWidget {
@@ -28,7 +28,8 @@ class InputUserPage extends StatelessWidget {
               onPressed: () {
                 controller.onSavedUser();
                 Navigator.of(context).pushNamed('/inputValue',
-                    arguments: InputValueArguments(user: controller.userModel));
+                    arguments:
+                        InputAmountArguments(user: controller.userModel));
               },
               child: const Text('Continuar'),
             )
