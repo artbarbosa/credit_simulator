@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import '../../input_options/input_options_arguments.dart';
 import '../controller/input_amount_controller.dart';
 import '../route/input_amount_arguments.dart';
-import '../utils/currency_value_mask.dart';
 
 class InputValuePage extends StatelessWidget {
   const InputValuePage({Key? key, required this.arguments}) : super(key: key);
@@ -18,10 +17,15 @@ class InputValuePage extends StatelessWidget {
         child: Column(
           children: [
             TextFormField(
+              keyboardType: const TextInputType.numberWithOptions(
+                  decimal: true, signed: false),
               validator: controller.validateAmount,
-              inputFormatters: [
-                CurrencyValueMask(symbol: r'$', decimal: ',', cents: '.'),
-              ],
+              onSaved: (amount) {
+                if (amount != null) {
+                  controller.value = double.tryParse(amount);
+                }
+              },
+              inputFormatters: [],
               decoration: const InputDecoration(
                 labelText: 'Valor',
               ),
@@ -32,8 +36,9 @@ class InputValuePage extends StatelessWidget {
                 Navigator.of(context).pushNamed(
                   '/inputOptions',
                   arguments: InputOptionsArguments(
-                      user: arguments.user,
-                      amountCreditModel: controller.amountCreditModel),
+                    user: arguments.user,
+                    amountCreditModel: controller.amountCreditModel,
+                  ),
                 );
               },
               child: const Text('Continuar'),

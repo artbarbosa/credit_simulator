@@ -22,6 +22,7 @@ class InputUserController {
   void onSavedUser() {
     final form = formKey.currentState;
     if (form!.validate()) {
+      form.save();
       userModel = UserModel(fullName: fullName, email: email);
     }
   }

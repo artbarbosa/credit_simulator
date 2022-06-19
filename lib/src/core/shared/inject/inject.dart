@@ -1,6 +1,9 @@
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
 
+import '../../../modules/credit/submodules/simulator_credit/datasource/simulator_credit_datasource.dart';
+import '../../../modules/credit/submodules/simulator_credit/repository/simulator_credit_repository.dart';
+import '../../../modules/credit/submodules/simulator_credit/ui/credit_result/controllers/credit_result_controller.dart';
 import '../services/remote/dio_http_client_service.dart';
 import '../services/remote/http_client_service.dart';
 
@@ -11,41 +14,16 @@ class Inject {
     getIt.registerLazySingleton<IHttpClientService>(
         () => DioHttpServiceImp(Dio()));
 
-    // getIt.registerLazySingleton<IHttpClientService>(
-    //     () => GraphqlHttpClientServiceImp(getIt()));
+    getIt.registerLazySingleton<ISimulatorCreditDatasource>(
+        () => SimulatorCreditDatasource(httpClient: getIt()));
 
-    // getIt.registerLazySingleton<IBookRemoteDataSource>(
-    //     () => BookRemoteDataSource(client: getIt()));
+    getIt.registerLazySingleton<ISimulatorCreditRepository>(
+        () => SimulatorCreditRepository(datasource: getIt()));
 
-    // getIt.registerLazySingleton<IAuthorRemoteDataSource>(
-    //     () => AuthorRemoteDataSource(client: getIt()));
+    getIt.registerLazySingleton<ISimulatorCreditRepository>(
+        () => SimulatorCreditRepository(datasource: getIt()));
 
-    // getIt.registerLazySingleton<IUserRemoteDataSource>(
-    //     () => UserRemoteDataSource(client: getIt()));
-
-    // getIt.registerLazySingleton<IBookRepository>(
-    //     () => BookRepository(datasource: getIt()));
-
-    // getIt.registerLazySingleton<IAuthorRepository>(
-    //     () => AuthorRepository(datasource: getIt()));
-
-    // getIt.registerLazySingleton<IUserRepository>(
-    //     () => UserRepository(datasource: getIt()));
-
-    // getIt.registerLazySingleton<MyBooksController>(
-    //   () => MyBooksController(getIt(), getIt()),
-    // );
-
-    // getIt.registerFactory<DetailController>(
-    //   () => DetailController(getIt()),
-    // );
-
-    // getIt.registerFactory<HomeController>(
-    //   () => HomeController(getIt()),
-    // );
-
-    // getIt.registerLazySingleton<CustomBottomNavigationBarController>(
-    //   () => CustomBottomNavigationBarController(0),
-    // );
+    getIt.registerLazySingleton<CreditResultController>(
+        () => CreditResultController(getIt()));
   }
 }

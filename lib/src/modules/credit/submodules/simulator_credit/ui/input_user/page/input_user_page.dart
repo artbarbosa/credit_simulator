@@ -17,12 +17,20 @@ class InputUserPage extends StatelessWidget {
           children: [
             TextFormField(
               autofocus: true,
+              keyboardType: TextInputType.name,
               decoration: const InputDecoration(label: Text('Nome Completo')),
               validator: controller.validateFullName,
+              onSaved: (fullname) {
+                controller.fullName = fullname!;
+              },
             ),
             TextFormField(
               autofocus: true,
+              keyboardType: TextInputType.emailAddress,
               validator: controller.validateEmail,
+              onSaved: (email) {
+                controller.email = email!;
+              },
             ),
             ElevatedButton(
               onPressed: () {
