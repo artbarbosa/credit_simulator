@@ -41,32 +41,6 @@ class CreditModel {
     required this.annualRate,
   });
 
-  Map<String, dynamic> toMap() {
-    final result = <String, dynamic>{};
-
-    result.addAll({'id': id});
-    result.addAll({'fullname': fullname});
-    result.addAll({'email': email});
-    result.addAll({'ltv': ltv});
-    result.addAll({'contractValue': contractValue});
-    result.addAll({'netValue': netValue});
-    result.addAll({'installmentValue': installmentValue});
-    result.addAll({'lastInstallmentValue': lastInstallmentValue});
-    result.addAll({'iofFee': iofFee});
-    result.addAll({'originationFee': originationFee});
-    result.addAll({'term': term});
-    result.addAll({'collateral': collateral});
-    result.addAll({'collateralInBrl': collateralInBrl});
-    result.addAll({'collateralUnitPrice': collateralUnitPrice});
-    result.addAll({'firstDueDate': firstDueDate});
-    result.addAll({'lastDueDate': lastDueDate});
-    result.addAll({'interestRate': interestRate});
-    result.addAll({'monthlyRate': monthlyRate});
-    result.addAll({'annualRate': annualRate});
-
-    return result;
-  }
-
   factory CreditModel.fromMap(Map<String, dynamic> map) {
     return CreditModel(
       id: map['id'] ?? '',

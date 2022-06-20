@@ -26,7 +26,7 @@ class DioHttpServiceImp implements IHttpClientService {
       } else {
         throw DioServiceError(
           stackTrace: stackTrace,
-          label: 'DioHttpServiceImp-get',
+          label: 'DioHttpServiceImp-post',
           exception: e.error,
           errorMessage: e.message,
         );

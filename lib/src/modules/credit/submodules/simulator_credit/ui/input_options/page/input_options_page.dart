@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:rispar_credit_simulator/src/modules/credit/submodules/simulator_credit/models/post_credit_model.dart';
 
+import '../../credit_result/route/credit_result_arguments.dart';
 import '../input_options_arguments.dart';
 import 'controller/input_options_controller.dart';
 import 'widgets/custom_slide.dart';
@@ -42,7 +44,40 @@ class _InputOptionsPageState extends State<InputOptionsPage> {
               controller.onChangeLtv(value);
             },
           ),
-          ElevatedButton(onPressed: () {}, child: const Text('Continuar'))
+          TextButton(
+            child: const Text('Continuar Sem Protreção'),
+            onPressed: () {
+              controller.setHasProtected(false);
+              Navigator.of(context).pushNamed(
+                '/creditResult',
+                arguments: PostCreditModel(
+                  user: widget.arguments.user,
+                  amount: widget.arguments.amountCreditModel.amount,
+                  ltv: controller.ltv,
+                  term: controller.term,
+                  hasProtectedCollateral: controller.hasProtected,
+                ),
+              );
+            },
+          ),
+          ElevatedButton(
+            child: const Text('Continuar'),
+            onPressed: () {
+              controller.setHasProtected(true);
+              Navigator.of(context).pushNamed(
+                '/creditResult',
+                arguments: CreditResultArguments(
+                  postCreditModel: PostCreditModel(
+                    user: widget.arguments.user,
+                    amount: widget.arguments.amountCreditModel.amount,
+                    ltv: controller.ltv,
+                    term: controller.term,
+                    hasProtectedCollateral: controller.hasProtected,
+                  ),
+                ),
+              );
+            },
+          )
         ],
       ),
     );

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../container/credit_result_container.dart';
 import 'credit_result_arguments.dart';
 
 class CreditResultRoute extends StatelessWidget {
@@ -9,6 +10,8 @@ class CreditResultRoute extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container();
+    return CreditResultContainer(
+      arguments: arguments,
+    );
   }
 }

@@ -1,0 +1,21 @@
+var creditMapMock = {
+  "id": "4039bcf6-5a11-45ba-acb9-92be55a33043",
+  "fullname": "Arthur Barbosa",
+  "email": "arthur.bos@hotmail.com",
+  "ltv": 35,
+  "contract_value": 2615.860425,
+  "net_value": 2500.0,
+  "installment_value": 38.803765,
+  "last_installment_value": 2654.66419,
+  "iof_fee": 50.463915,
+  "origination_fee": 65.396511,
+  "term": 12,
+  "collateral": 6971356,
+  "collateral_in_brl": 7142.857143,
+  "collateral_unit_price": 102460.069667,
+  "first_due_date": "2022-07-10",
+  "last_due_date": "2023-06-10",
+  "interest_rate": 1.49,
+  "monthly_rate": 1.925109,
+  "annual_rate": 25.711274
+};

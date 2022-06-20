@@ -20,9 +20,6 @@ class Inject {
     getIt.registerLazySingleton<ISimulatorCreditRepository>(
         () => SimulatorCreditRepository(datasource: getIt()));
 
-    getIt.registerLazySingleton<ISimulatorCreditRepository>(
-        () => SimulatorCreditRepository(datasource: getIt()));
-
     getIt.registerLazySingleton<CreditResultController>(
         () => CreditResultController(getIt()));
   }

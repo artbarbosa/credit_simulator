@@ -10,6 +10,10 @@ class InputAmountController {
   String? validateAmount(String? value) =>
       value?.isEmpty ?? true ? "O nome não pode ser vazio" : null;
 
+  setValue(String amount) {
+    value = double.tryParse(amount.replaceAll('.', ''));
+  }
+
   void onSavedAmount() {
     final form = formKey.currentState;
     if (form!.validate()) {

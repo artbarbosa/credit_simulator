@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../input_options/input_options_arguments.dart';
 import '../controller/input_amount_controller.dart';
 import '../route/input_amount_arguments.dart';
+import '../utils/currency_value_mask.dart';
 
 class InputValuePage extends StatelessWidget {
   const InputValuePage({Key? key, required this.arguments}) : super(key: key);
@@ -22,10 +23,12 @@ class InputValuePage extends StatelessWidget {
               validator: controller.validateAmount,
               onSaved: (amount) {
                 if (amount != null) {
-                  controller.value = double.tryParse(amount);
+                  controller.setValue(amount);
                 }
               },
-              inputFormatters: [],
+              inputFormatters: [
+                CurrencyValueMask(decimal: '.'),
+              ],
               decoration: const InputDecoration(
                 labelText: 'Valor',
               ),
