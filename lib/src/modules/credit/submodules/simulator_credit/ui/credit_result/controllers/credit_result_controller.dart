@@ -8,16 +8,15 @@ import '../states/credit_result_states.dart';
 class CreditResultController extends ValueNotifier<CreditResultPageState> {
   final ISimulatorCreditRepository _repository;
 
-  CreditResultController(
-    this._repository,
-  ) : super(CreditResultLoadingState());
+  CreditResultController(this._repository) : super(CreditResultLoadingState());
 
   late CreditModel _creditModel;
 
   Future<void> fetchCreditSimulator(PostCreditModel postCreditModel) async {
     value = CreditResultLoadingState();
     try {
-      _creditModel = await _repository.postSimulatorCredit(postCreditModel);
+      _creditModel = await _repository.postSimulatorCredit(
+          postCreditModel: postCreditModel);
       value = CreditResultLoadedState(creditModel: _creditModel);
     } catch (e) {
       value = CreditResultErrorState(errorMessage: e.toString());

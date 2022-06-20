@@ -1,10 +1,18 @@
 import 'package:flutter/material.dart';
 
-class CreditResultPage extends StatelessWidget {
-  const CreditResultPage({Key? key}) : super(key: key);
+import '../../../../../models/credit_model.dart';
 
+class CreditResultPage extends StatelessWidget {
+  const CreditResultPage({Key? key, required this.creditModel})
+      : super(key: key);
+
+  final CreditModel creditModel;
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: Column(children: [
+        Text(creditModel.email),
+      ]),
+    );
   }
 }

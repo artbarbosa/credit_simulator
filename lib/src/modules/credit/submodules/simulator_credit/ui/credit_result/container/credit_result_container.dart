@@ -37,10 +37,16 @@ class _CreditResultContainerState extends State<CreditResultContainer> {
       valueListenable: controller,
       builder: (context, value, _) {
         if (value is CreditResultLoadedState) {
-          return const CreditResultPage();
+          return CreditResultPage(
+            creditModel: value.creditModel,
+          );
         }
         if (value is CreditResultErrorState) {
-          return const CreditResultError();
+          return CreditResultError(
+            errorMenssage: value.errorMessage,
+            refresh: () => controller
+                .fetchCreditSimulator(widget.arguments.postCreditModel),
+          );
         }
 
         return const CreditResultLoading();

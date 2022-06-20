@@ -1,9 +1,11 @@
 import '../../../models/credit_model.dart';
 import '../datasource/simulator_credit_datasource.dart';
+import '../failures/simulator_credit_failures.dart';
 import '../models/post_credit_model.dart';
 
 abstract class ISimulatorCreditRepository {
-  Future<CreditModel> postSimulatorCredit(PostCreditModel postCreditModel);
+  Future<CreditModel> postSimulatorCredit(
+      {required PostCreditModel postCreditModel});
 }
 
 class SimulatorCreditRepository implements ISimulatorCreditRepository {
@@ -15,10 +17,20 @@ class SimulatorCreditRepository implements ISimulatorCreditRepository {
 
   @override
   Future<CreditModel> postSimulatorCredit(
-      PostCreditModel postCreditModel) async {
-    final map =
-        await datasource.postSimulatorCredit(postCreditModel: postCreditModel);
-
-    return CreditModel.fromMap(map);
+      {required PostCreditModel postCreditModel}) async {
+    try {
+      final map = await datasource.postSimulatorCredit(
+          postCreditModel: postCreditModel);
+      return CreditModel.fromMap(map);
+    } on SimulatorCreditDatasourceInternetConnection catch (e) {
+      throw SimulatorCreditRepositoryInternetConnection();
+    } on SimulatorCreditDatasourceError catch (e, stackTrace) {
+      throw SimulatorCreditRepositoryError(
+        stackTrace: stackTrace,
+        label: 'SimulatorCreditRepository-postSimulatorCredit',
+        exception: e,
+        errorMessage: e.toString(),
+      );
+    }
   }
 }

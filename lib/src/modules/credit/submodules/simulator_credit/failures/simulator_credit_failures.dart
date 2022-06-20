@@ -16,3 +16,20 @@ class SimulatorCreditDatasourceError extends Failure {
           errorMessage: errorMessage,
         );
 }
+
+class SimulatorCreditRepositoryInternetConnection
+    implements NoInternetConnection {}
+
+class SimulatorCreditRepositoryError extends Failure {
+  SimulatorCreditRepositoryError({
+    StackTrace? stackTrace,
+    required String label,
+    required dynamic exception,
+    required String errorMessage,
+  }) : super(
+          stackTrace: stackTrace,
+          label: label,
+          exception: exception,
+          errorMessage: errorMessage,
+        );
+}
