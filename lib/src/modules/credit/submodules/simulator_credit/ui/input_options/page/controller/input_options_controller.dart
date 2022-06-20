@@ -1,6 +1,6 @@
 class InputOptionsController {
-  int term = 0;
-  int ltv = 0;
+  int term = 12;
+  int ltv = 35;
   bool hasProtected = true;
 
   onChangeTerm(num value) {
