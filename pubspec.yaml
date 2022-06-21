@@ -29,9 +29,20 @@ flutter:
 
   uses-material-design: true
 
-assets:
-  - assets/images/input_user_image.png
-
+  assets:
+    - assets/images/
+  
+  fonts:
+    - family: Aftika
+      fonts:
+        - asset: assets/fonts/aftika_bold.ttf
+    - family: Vayu
+      fonts:
+        - asset: assets/fonts/VayuSans-Bold.ttf
+    - family: Abitare
+      fonts:
+        - asset: assets/fonts/AbitareSans-700.ttf
+        
   # fonts:
   #   - family: Schyler
   #     fonts:

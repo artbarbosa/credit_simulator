@@ -24,24 +24,61 @@ class InputUserPage extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(
-                height: currentSize.height * 0.4,
+                height: currentSize.height * 0.35,
                 child: Image.asset('assets/images/input_user_image.png'),
               ),
               RichText(
                 text: const TextSpan(
                   text: 'Simule ',
                   style: TextStyle(
-                      color: Colors.black, fontWeight: FontWeight.bold),
+                    fontSize: 25,
+                    fontFamily: 'Aftika',
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                  ),
                   children: [
                     TextSpan(
-                        text: ' Agora',
-                        style: TextStyle(
-                            color: AppColorsConst.primary,
-                            fontWeight: FontWeight.bold)),
+                      text: 'agora',
+                      style: TextStyle(
+                        fontSize: 25,
+                        fontFamily: 'Aftika',
+                        color: AppColorsConst.primary,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
                   ],
                 ),
               ),
-              const Text('Crédito rápido, fácil e seguro! :)'),
+              const SizedBox(height: 4),
+              const Text(
+                'Crédito rápido, fácil e seguro! :)',
+                style: TextStyle(
+                  fontSize: 15,
+                  fontFamily: 'Vayu',
+                  color: Color(0xFF323436),
+                ),
+              ),
+              const SizedBox(height: 20),
+              RichText(
+                text: const TextSpan(
+                  text: 'Qual seu',
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontFamily: 'Vayu',
+                    color: Color(0xFF323436),
+                  ),
+                  children: [
+                    TextSpan(
+                      text: ' nome completo?',
+                      style: TextStyle(
+                        fontSize: 15,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
               TextFormField(
                 autofocus: true,
                 keyboardType: TextInputType.name,
@@ -53,7 +90,27 @@ class InputUserPage extends StatelessWidget {
                   controller.fullName = fullname!;
                 },
               ),
-              const SizedBox(height: 20),
+              const SizedBox(height: 10),
+              RichText(
+                text: const TextSpan(
+                  text: 'E seu',
+                  style: TextStyle(
+                    fontSize: 15,
+                    fontFamily: 'Vayu',
+                    color: Color(0xFF323436),
+                  ),
+                  children: [
+                    TextSpan(
+                      text: 'e-mail?',
+                      style: TextStyle(
+                        fontSize: 15,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
               TextFormField(
                 autofocus: true,
                 keyboardType: TextInputType.emailAddress,

@@ -15,7 +15,13 @@ class InputValuePage extends StatelessWidget {
     final controller = InputAmountController();
     final currentSize = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        centerTitle: true,
+        title: const LinearProgressIndicator(
+          value: 0.33,
+        ),
+      ),
       body: Form(
         key: controller.formKey,
         child: Padding(
@@ -23,52 +29,66 @@ class InputValuePage extends StatelessWidget {
               const EdgeInsets.only(left: 35, right: 35, bottom: 35, top: 20),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Column(
-                children: [
-                  RichText(
-                    text: const TextSpan(
-                      text: 'De Quanto Voce Precisa ',
-                      style: TextStyle(
+              SizedBox(
+                height: currentSize.height * 0.3,
+                child: Column(
+                  children: [
+                    RichText(
+                      text: const TextSpan(
+                        text: 'De quanto ',
+                        style: TextStyle(
+                          fontSize: 20,
+                          fontFamily: 'Aftika',
                           color: AppColorsConst.primary,
-                          fontWeight: FontWeight.bold),
-                      children: [
-                        TextSpan(
-                            text: 'Insira um valor entre ',
+                          fontWeight: FontWeight.bold,
+                        ),
+                        children: [
+                          TextSpan(
+                            text: 'você precisa?',
                             style: TextStyle(
+                              fontSize: 20,
+                              fontFamily: 'Aftika',
                               color: Colors.black,
-                            )),
-                      ],
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                  RichText(
-                    text: const TextSpan(
-                      text: 'De Quanto Voce Precisa ',
-                      style: TextStyle(
-                          color: Colors.grey, fontWeight: FontWeight.bold),
-                      children: [
-                        TextSpan(
-                          text: 'R\$500',
-                          style: TextStyle(
-                              color: Colors.black, fontWeight: FontWeight.bold),
-                        ),
-                        TextSpan(
-                          text: ' a ',
-                          style: TextStyle(color: Colors.black),
-                        ),
-                        TextSpan(
-                          text: 'R\$300.000',
-                          style: TextStyle(
-                              color: Colors.black, fontWeight: FontWeight.bold),
-                        ),
-                      ],
+                    RichText(
+                      text: const TextSpan(
+                        text: 'De Quanto Voce Precisa ',
+                        style: TextStyle(
+                            color: Colors.grey, fontWeight: FontWeight.bold),
+                        children: [
+                          TextSpan(
+                            text: 'R\$500',
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold),
+                          ),
+                          TextSpan(
+                            text: ' a ',
+                            style: TextStyle(color: Colors.black),
+                          ),
+                          TextSpan(
+                            text: 'R\$300.000',
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
               TextFormField(
                 initialValue: '5.000',
                 style: const TextStyle(
+                  fontFamily: 'Abitare',
                   fontSize: 40,
                   color: AppColorsConst.primary,
                 ),
@@ -85,7 +105,7 @@ class InputValuePage extends StatelessWidget {
                 ],
                 decoration: const InputDecoration(
                     prefix: Text(
-                  'R\$',
+                  'R\$ ',
                   style: TextStyle(color: AppColorsConst.primary),
                 )),
               ),
