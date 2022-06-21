@@ -10,6 +10,7 @@ import '../utils/currency_value_mask.dart';
 class InputValuePage extends StatelessWidget {
   const InputValuePage({Key? key, required this.arguments}) : super(key: key);
   final InputAmountArguments arguments;
+
   @override
   Widget build(BuildContext context) {
     final controller = InputAmountController();

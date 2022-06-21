@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:rispar_credit_simulator/src/modules/credit/submodules/simulator_credit/models/post_credit_model.dart';
 
+import '../../../../../../../core/shared/consts/app_colors_const.dart';
+import '../../../../../../../core/shared/utils/format_amount.dart';
 import '../../credit_result/route/credit_result_arguments.dart';
 import '../input_options_arguments.dart';
 import 'controller/input_options_controller.dart';
@@ -22,8 +24,22 @@ class _InputOptionsPageState extends State<InputOptionsPage> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text('Valor Escolhido'),
-          Text('\$ ${widget.arguments.amountCreditModel.amount}'),
+          const Text(
+            'Valor Escolhido',
+            style: TextStyle(
+              fontFamily: 'Abitare',
+              fontSize: 30,
+              color: Colors.black,
+            ),
+          ),
+          Text(
+            'R\$ ${FormatAmount.call(widget.arguments.amountCreditModel.amount)}',
+            style: const TextStyle(
+              fontFamily: 'Abitare',
+              fontSize: 40,
+              color: AppColorsConst.primary,
+            ),
+          ),
           CustomSlide(
             minValue: 3,
             maxValue: 12,
