@@ -3,9 +3,15 @@ import 'package:flutter/material.dart';
 import '../../../models/amount_credit_model.dart';
 
 class InputAmountController {
-  double? value = 0;
+  double? _value = 0;
   late AmountCreditModel amountCreditModel;
   final formKey = GlobalKey<FormState>();
+
+  double? get value => _value;
+
+  setValue(String amount) {
+    _value = double.tryParse(amount.replaceAll('.', ''));
+  }
 
   String? validateAmount(String? value) {
     if (value == null || value.isEmpty) {
@@ -18,15 +24,11 @@ class InputAmountController {
     return '';
   }
 
-  setValue(String amount) {
-    value = double.tryParse(amount.replaceAll('.', ''));
-  }
-
   void onSavedAmount() {
     final form = formKey.currentState;
     if (form!.validate()) {
       form.save();
-      amountCreditModel = AmountCreditModel(amount: value!);
+      amountCreditModel = AmountCreditModel(amount: _value!);
     }
   }
 }

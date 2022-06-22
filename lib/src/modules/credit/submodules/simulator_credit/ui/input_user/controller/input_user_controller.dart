@@ -3,14 +3,24 @@ import 'package:flutter/material.dart';
 import '../../../../../../../core/user/model/user_model.dart';
 
 class InputUserController {
-  String fullName = '';
-  String email = '';
+  String _fullName = '';
+  String _email = '';
   late UserModel userModel;
   final formKey = GlobalKey<FormState>();
 
+  String get fullName => _fullName;
+  String get email => _email;
+
+  void setFullName(String fullName) {
+    _fullName = fullName;
+  }
+
+  void setEmail(String email) {
+    _email = email;
+  }
+
   String? validateFullName(String? value) =>
-      !RegExp(r"^([a-zA-Z]{2,}\s[a-zA-Z]{1,}'?-?[a-zA-Z]{2,}\s?([a-zA-Z]{1,})?)")
-              .hasMatch(value ?? '')
+      !RegExp(r"^([a-zA-Z])").hasMatch(value ?? '')
           ? 'Digite um email válido!'
           : null;
 
@@ -23,7 +33,7 @@ class InputUserController {
     final form = formKey.currentState;
     if (form!.validate()) {
       form.save();
-      userModel = UserModel(fullName: fullName, email: email);
+      userModel = UserModel(fullName: _fullName, email: _email);
     }
   }
 }

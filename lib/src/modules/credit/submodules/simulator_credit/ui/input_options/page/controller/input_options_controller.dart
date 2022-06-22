@@ -1,17 +1,21 @@
 class InputOptionsController {
-  int term = 12;
-  int ltv = 35;
-  bool hasProtected = true;
+  int _term = 12;
+  int _ltv = 35;
+  bool _hasProtected = true;
+
+  int get term => _term;
+  int get ltv => _ltv;
+  bool get hasProtected => _hasProtected;
 
   onChangeTerm(num value) {
-    term = value.round();
+    _term = value.round();
   }
 
   onChangeLtv(num value) {
-    ltv = value.round();
+    _ltv = value.round();
   }
 
   void setHasProtected(bool value) {
-    hasProtected = value;
+    _hasProtected = value;
   }
 }

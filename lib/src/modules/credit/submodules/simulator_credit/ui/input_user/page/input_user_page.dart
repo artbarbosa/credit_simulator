@@ -66,7 +66,7 @@ class InputUserPage extends StatelessWidget {
                     ),
                     validator: controller.validateFullName,
                     onSaved: (fullname) {
-                      controller.fullName = fullname!;
+                      controller.setFullName(fullname!);
                     },
                   ),
                   const SizedBox(height: 20),
@@ -89,7 +89,7 @@ class InputUserPage extends StatelessWidget {
                       hintText: 'seuemail@email.com',
                     ),
                     onSaved: (email) {
-                      controller.email = email!;
+                      controller.setEmail(email!);
                     },
                   ),
                   const Spacer(),
