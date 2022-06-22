@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 import 'package:rispar_credit_simulator/src/core/shared/ui/widget/custom_buttom.dart';
 
 import '../../../../../../../core/shared/consts/app_text_style_const.dart';
@@ -8,7 +9,7 @@ import '../controller/input_user_controller.dart';
 class InputUserPage extends StatelessWidget {
   InputUserPage({Key? key}) : super(key: key);
 
-  final controller = InputUserController();
+  final controller = GetIt.I.get<InputUserController>();
 
   @override
   Widget build(BuildContext context) {

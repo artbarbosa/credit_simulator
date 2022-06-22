@@ -31,7 +31,7 @@ final creditModelMock = CreditModel(
     iofFee: 50.463915,
     originationFee: 65.396511,
     term: 12,
-    collateral: 1,
+    collateral: 4813040,
     collateralInBrl: 1,
     collateralUnitPrice: 1,
     firstDueDate: 'firstDueDate',

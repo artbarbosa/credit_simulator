@@ -64,4 +64,8 @@ class CreditModel {
       annualRate: map['annual_rate']?.toDouble() ?? 0.0,
     );
   }
+
+  double convertBitcoinToSats() {
+    return collateral / 100000000;
+  }
 }

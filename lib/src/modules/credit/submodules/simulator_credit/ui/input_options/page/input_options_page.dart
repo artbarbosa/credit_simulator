@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 
 import '../../../../../../../core/shared/consts/app_text_style_const.dart';
 import '../../../../../../../core/shared/ui/widget/custom_app_bar.dart';
@@ -21,7 +22,7 @@ class InputOptionsPage extends StatefulWidget {
 class _InputOptionsPageState extends State<InputOptionsPage> {
   @override
   Widget build(BuildContext context) {
-    final controller = InputOptionsController();
+    final controller = GetIt.I.get<InputOptionsController>();
     final Size currentSize = MediaQuery.of(context).size;
     return Scaffold(
       appBar: const PreferredSize(

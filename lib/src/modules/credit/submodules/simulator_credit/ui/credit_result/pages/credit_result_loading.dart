@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:rispar_credit_simulator/src/core/shared/consts/app_text_style_const.dart';
 
 import '../../../../../../../core/shared/consts/app_colors_const.dart';
+import '../../../../../../../core/shared/consts/app_text_style_const.dart';
 
 class CreditResultLoading extends StatelessWidget {
   const CreditResultLoading({Key? key}) : super(key: key);

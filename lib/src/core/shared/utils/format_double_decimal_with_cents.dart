@@ -1,5 +1,5 @@
 class FormatDoubleDecimalWithCents {
-  static call(double amount, String decimal, String cents) {
+  static String call(double amount, String decimal, String cents) {
     var value = amount.toStringAsFixed(0);
     final listCharacters = [];
     var decimalCount = 0;

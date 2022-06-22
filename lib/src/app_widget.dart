@@ -9,6 +9,7 @@ class AppWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch:
             const MaterialColor(0xFF36908E, AppColorsConst.mapPrimary),

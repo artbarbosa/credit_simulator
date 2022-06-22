@@ -12,4 +12,11 @@ void main() {
       expect(result.ltv, 35);
     });
   });
+
+  group('CreditModel - convertBitcoinToSats', () {
+    test('Should return double', () async {
+      final result = creditModelMock.convertBitcoinToSats();
+      expect(result, 0.0481304);
+    });
+  });
 }

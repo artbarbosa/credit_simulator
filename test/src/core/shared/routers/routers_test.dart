@@ -3,8 +3,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:rispar_credit_simulator/src/core/shared/routers/routers.dart';
 
 void main() {
-  const String initialRoute = '/';
-  const routeSetting = RouteSettings(name: '/');
+  const String initialRoute = '/credit';
+  const routeSetting = RouteSettings(name: '/credit');
   const routeSettingNull = RouteSettings(name: null);
 
   group('Routers - initialRoute', () {

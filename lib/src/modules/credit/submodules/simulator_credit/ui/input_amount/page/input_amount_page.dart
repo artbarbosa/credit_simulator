@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:rispar_credit_simulator/src/core/shared/ui/widget/custom_buttom.dart';
+import 'package:get_it/get_it.dart';
 
 import '../../../../../../../core/shared/consts/app_colors_const.dart';
 import '../../../../../../../core/shared/consts/app_text_style_const.dart';
 import '../../../../../../../core/shared/ui/widget/custom_app_bar.dart';
+import '../../../../../../../core/shared/ui/widget/custom_buttom.dart';
 import '../../input_options/route/input_options_arguments.dart';
 import '../controller/input_amount_controller.dart';
 import '../route/input_amount_arguments.dart';
@@ -15,7 +16,7 @@ class InputValuePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final controller = InputAmountController();
+    final controller = GetIt.I.get<InputAmountController>();
     final currentSize = MediaQuery.of(context).size;
     return Scaffold(
       appBar: const PreferredSize(
@@ -86,10 +87,11 @@ class InputValuePage extends StatelessWidget {
                       CurrencyValueMask(decimal: '.'),
                     ],
                     decoration: const InputDecoration(
-                        prefix: Text(
-                      'R\$ ',
-                      style: TextStyle(color: AppColorsConst.primary),
-                    )),
+                      prefix: Text(
+                        'R\$ ',
+                        style: TextStyle(color: AppColorsConst.primary),
+                      ),
+                    ),
                   ),
                   const Spacer(),
                   CustomButton(

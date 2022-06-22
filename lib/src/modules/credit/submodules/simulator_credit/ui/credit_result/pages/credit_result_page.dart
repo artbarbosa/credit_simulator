@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:rispar_credit_simulator/src/core/shared/consts/app_text_style_const.dart';
 
+import '../../../../../../../core/shared/consts/app_text_style_const.dart';
 import '../../../../../../../core/shared/ui/widget/custom_app_bar.dart';
 import '../../../../../../../core/shared/ui/widget/custom_buttom.dart';
 import '../../../../../../../core/shared/utils/format_double_decimal.dart';
@@ -45,7 +45,7 @@ class CreditResultPage extends StatelessWidget {
                 ListTileWidget(
                   label: 'Garantia',
                   result:
-                      '₿ ${(creditModel.collateral / 100000000).toStringAsFixed(8).replaceAll('.', ',')}',
+                      '₿ ${creditModel.convertBitcoinToSats().toStringAsFixed(8).replaceAll('.', ',')}',
                 ),
                 ListTileWidget(
                   label: 'Taxa de Juros',
