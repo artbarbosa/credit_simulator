@@ -7,11 +7,11 @@ class InputOptionsController {
   int get ltv => _ltv;
   bool get hasProtected => _hasProtected;
 
-  onChangeTerm(num value) {
+  void onChangeTerm(num value) {
     _term = value.round();
   }
 
-  onChangeLtv(num value) {
+  void onChangeLtv(num value) {
     _ltv = value.round();
   }
 
