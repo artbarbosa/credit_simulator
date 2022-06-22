@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 
 import '../controllers/credit_result_controller.dart';
-import '../page/credit_result_error.dart';
-import '../page/credit_result_loading.dart';
-import '../page/credit_result_page.dart';
+import '../pages/credit_result_error.dart';
+import '../pages/credit_result_loading.dart';
+import '../pages/credit_result_page.dart';
 import '../route/credit_result_arguments.dart';
 import '../states/credit_result_states.dart';
 

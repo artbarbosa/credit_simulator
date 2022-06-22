@@ -21,7 +21,7 @@ class InputUserPage extends StatelessWidget {
             height: currentSize.height,
             child: Padding(
               padding: const EdgeInsets.only(
-                  bottom: 35, left: 30, right: 30, top: 80),
+                  bottom: 35, left: 30, right: 30, top: 96),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.start,

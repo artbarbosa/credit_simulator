@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rispar_credit_simulator/src/core/shared/consts/app_text_style_const.dart';
 
 class ListTileWidget extends StatelessWidget {
   const ListTileWidget({Key? key, required this.label, required this.result})
@@ -12,21 +13,19 @@ class ListTileWidget extends StatelessWidget {
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 5),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
                   label,
-                  style: const TextStyle(
-                    fontSize: 12,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: AppTextStylesConst.subtitlesBold,
                 ),
-                Text(result,
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                        fontWeight: FontWeight.w600, color: Colors.black45)),
+                Text(
+                  result,
+                  textAlign: TextAlign.center,
+                  style: AppTextStylesConst.subtitlesRegular,
+                ),
               ],
             ),
           ),

@@ -3,6 +3,7 @@ import 'package:rispar_credit_simulator/src/core/shared/ui/widget/custom_buttom.
 
 import '../../../../../../../core/shared/consts/app_colors_const.dart';
 import '../../../../../../../core/shared/consts/app_text_style_const.dart';
+import '../../../../../../../core/shared/ui/widget/custom_app_bar.dart';
 import '../../input_options/route/input_options_arguments.dart';
 import '../controller/input_amount_controller.dart';
 import '../route/input_amount_arguments.dart';
@@ -17,10 +18,9 @@ class InputValuePage extends StatelessWidget {
     final controller = InputAmountController();
     final currentSize = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        centerTitle: true,
-        title: const LinearProgressIndicator(
+      appBar: const PreferredSize(
+        preferredSize: Size.fromHeight(56),
+        child: CustomAppBar(
           value: 0.33,
         ),
       ),
@@ -31,7 +31,7 @@ class InputValuePage extends StatelessWidget {
             height: currentSize.height - 80,
             child: Padding(
               padding: const EdgeInsets.only(
-                  left: 30, right: 30, bottom: 35, top: 80),
+                  left: 30, right: 30, bottom: 35, top: 40),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 mainAxisAlignment: MainAxisAlignment.start,

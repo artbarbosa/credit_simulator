@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../../../../core/shared/consts/app_text_style_const.dart';
+import '../../../../../../../core/shared/ui/widget/custom_app_bar.dart';
 import '../../../../../../../core/shared/ui/widget/custom_buttom.dart';
 import '../../../../../../../core/shared/utils/format_amount.dart';
 import '../../../models/post_credit_model.dart';
@@ -23,16 +24,15 @@ class _InputOptionsPageState extends State<InputOptionsPage> {
     final controller = InputOptionsController();
     final Size currentSize = MediaQuery.of(context).size;
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.white,
-        centerTitle: true,
-        title: const LinearProgressIndicator(
-          value: 0.33,
+      appBar: const PreferredSize(
+        preferredSize: Size.fromHeight(56),
+        child: CustomAppBar(
+          value: 0.66,
         ),
       ),
       body: Padding(
         padding:
-            const EdgeInsets.only(left: 30, right: 30, bottom: 35, top: 80),
+            const EdgeInsets.only(left: 30, right: 30, bottom: 35, top: 40),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.start,
