@@ -3,6 +3,8 @@ import 'package:rispar_credit_simulator/src/core/shared/consts/app_text_style_co
 
 import '../../../../../../../core/shared/ui/widget/custom_app_bar.dart';
 import '../../../../../../../core/shared/ui/widget/custom_buttom.dart';
+import '../../../../../../../core/shared/utils/format_double_decimal.dart';
+import '../../../../../../../core/shared/utils/format_double_decimal_with_cents.dart';
 import '../../../../../models/credit_model.dart';
 import 'widgets/list_tile_widget.dart';
 
@@ -37,19 +39,21 @@ class CreditResultPage extends StatelessWidget {
               children: [
                 ListTileWidget(
                   label: 'Valor Escolhido',
-                  result: creditModel.netValue.toStringAsFixed(0),
+                  result:
+                      'R\$ ${FormatDoubleDecimal.call(creditModel.netValue.toDouble())}',
                 ),
                 ListTileWidget(
                   label: 'Garantia',
-                  result: (creditModel.collateral / 100000000).toString(),
+                  result:
+                      '₿ ${(creditModel.collateral / 100000000).toStringAsFixed(8).replaceAll('.', ',')}',
                 ),
                 ListTileWidget(
                   label: 'Taxa de Juros',
-                  result: creditModel.interestRate.toString(),
+                  result: '${creditModel.interestRate.toString()}% a.m',
                 ),
-                const ListTileWidget(
+                ListTileWidget(
                   label: 'Percentual de Garantia',
-                  result: 'creditModel.',
+                  result: '${creditModel.ltv.toString()}%',
                 ),
                 ListTileWidget(
                   label: 'Primeiro Vencimento',
@@ -57,27 +61,31 @@ class CreditResultPage extends StatelessWidget {
                 ),
                 ListTileWidget(
                   label: 'IOF',
-                  result: creditModel.iofFee.toString(),
+                  result:
+                      'R\$ ${creditModel.iofFee.toStringAsFixed(2).replaceAll('.', ',')}',
                 ),
                 ListTileWidget(
                   label: 'Tarifa da Plataforma',
-                  result: creditModel.originationFee.toStringAsFixed(2),
+                  result:
+                      'R\$ ${creditModel.originationFee.toStringAsFixed(2).replaceAll('.', ',')}',
                 ),
                 ListTileWidget(
                   label: 'Total Financiado',
-                  result: creditModel.contractValue.toStringAsFixed(2),
+                  result:
+                      'R\$ ${FormatDoubleDecimalWithCents.call(creditModel.contractValue.toDouble(), '.', ',')}',
                 ),
                 ListTileWidget(
                   label: 'CET Mensal',
-                  result: creditModel.monthlyRate.toStringAsFixed(2),
+                  result: '${creditModel.monthlyRate.toStringAsFixed(2)}%',
                 ),
                 ListTileWidget(
                   label: 'CET Anual',
-                  result: creditModel.annualRate.toStringAsFixed(2),
+                  result: '${creditModel.annualRate.toStringAsFixed(2)}%',
                 ),
-                const ListTileWidget(
+                ListTileWidget(
                   label: 'Cotação BTC',
-                  result: 'creditModel.contractValue.toStringAsFixed(3)',
+                  result:
+                      'R\$ ${FormatDoubleDecimalWithCents.call(creditModel.collateralUnitPrice, ',', '.')}',
                 ),
               ],
             ),

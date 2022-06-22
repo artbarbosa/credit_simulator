@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../../../../core/shared/consts/app_text_style_const.dart';
 import '../../../../../../../core/shared/ui/widget/custom_app_bar.dart';
 import '../../../../../../../core/shared/ui/widget/custom_buttom.dart';
-import '../../../../../../../core/shared/utils/format_amount.dart';
+import '../../../../../../../core/shared/utils/format_double_decimal.dart';
 import '../../../models/post_credit_model.dart';
 import '../../credit_result/route/credit_result_arguments.dart';
 import '../route/input_options_arguments.dart';
@@ -43,7 +43,7 @@ class _InputOptionsPageState extends State<InputOptionsPage> {
                 const Text('Valor escolhido',
                     style: AppTextStylesConst.titlesBlack),
                 Text(
-                    'R\$ ${FormatAmount.call(widget.arguments.amountCreditModel.amount)}',
+                    'R\$ ${FormatDoubleDecimal.call(widget.arguments.amountCreditModel.amount)}',
                     style: AppTextStylesConst.numberTitle),
               ],
             ),

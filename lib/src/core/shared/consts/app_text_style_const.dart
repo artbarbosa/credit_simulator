@@ -59,4 +59,16 @@ class AppTextStylesConst {
     color: Colors.black,
     fontWeight: FontWeight.w700,
   );
+
+  static final resultRegular = TextStyle(
+    fontFamily: 'Cabrion',
+    fontSize: 14,
+    color: Colors.black.withOpacity(0.8),
+  );
+  static const resultBold = TextStyle(
+    fontSize: 14,
+    fontFamily: 'Cabrion',
+    color: Colors.black,
+    fontWeight: FontWeight.w700,
+  );
 }

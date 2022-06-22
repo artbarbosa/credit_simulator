@@ -19,12 +19,12 @@ class ListTileWidget extends StatelessWidget {
               children: [
                 Text(
                   label,
-                  style: AppTextStylesConst.subtitlesBold,
+                  style: AppTextStylesConst.resultBold,
                 ),
                 Text(
                   result,
                   textAlign: TextAlign.center,
-                  style: AppTextStylesConst.subtitlesRegular,
+                  style: AppTextStylesConst.resultRegular,
                 ),
               ],
             ),
