@@ -44,7 +44,7 @@ class _InputOptionsPageState extends State<InputOptionsPage> {
                 const Text('Valor escolhido',
                     style: AppTextStylesConst.titlesBlack),
                 Text(
-                    'R\$ ${FormatDoubleDecimal.call(widget.arguments.amountCreditModel.amount)}',
+                    'R\$${FormatDoubleDecimal.call(widget.arguments.amountCreditModel.amount)}',
                     style: AppTextStylesConst.numberTitle),
               ],
             ),
@@ -94,7 +94,7 @@ class _InputOptionsPageState extends State<InputOptionsPage> {
               maxValue: 50,
               divisions: 2,
               labelBottom: const ['20', '35', '50'],
-              currentSliderValue: 20,
+              currentSliderValue: 50,
               onChanged: (value) {
                 controller.onChangeLtv(value);
               },
@@ -104,6 +104,7 @@ class _InputOptionsPageState extends State<InputOptionsPage> {
               'Garantia Protegida',
               style: AppTextStylesConst.titlesPrimary,
             ),
+            const SizedBox(height: 10),
             Text(
               'Bitcoin caiu? Fique tranquilo! Na garantia protegida, você não recebe chamada de margem e não é liquido.',
               style: AppTextStylesConst.subtitlesRegular,
@@ -119,12 +120,14 @@ class _InputOptionsPageState extends State<InputOptionsPage> {
                   controller.setHasProtected(false);
                   Navigator.of(context).pushNamed(
                     '/creditResult',
-                    arguments: PostCreditModel(
-                      user: widget.arguments.user,
-                      amount: widget.arguments.amountCreditModel.amount,
-                      ltv: controller.ltv,
-                      term: controller.term,
-                      hasProtectedCollateral: controller.hasProtected,
+                    arguments: CreditResultArguments(
+                      postCreditModel: PostCreditModel(
+                        user: widget.arguments.user,
+                        amount: widget.arguments.amountCreditModel.amount,
+                        ltv: controller.ltv,
+                        term: controller.term,
+                        hasProtectedCollateral: controller.hasProtected,
+                      ),
                     ),
                   );
                 },
