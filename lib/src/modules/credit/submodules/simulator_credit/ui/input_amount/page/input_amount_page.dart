@@ -72,6 +72,7 @@ class InputValuePage extends StatelessWidget {
                   ),
                   const Spacer(),
                   TextFormField(
+                    autovalidateMode: AutovalidateMode.always,
                     initialValue: '5.000',
                     style: AppTextStylesConst.numberTitle,
                     keyboardType: TextInputType.number,

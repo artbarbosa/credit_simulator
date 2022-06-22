@@ -7,8 +7,16 @@ class InputAmountController {
   late AmountCreditModel amountCreditModel;
   final formKey = GlobalKey<FormState>();
 
-  String? validateAmount(String? value) =>
-      value?.isEmpty ?? true ? "O nome não pode ser vazio" : null;
+  String? validateAmount(String? value) {
+    if (value == null || value.isEmpty) {
+      return '';
+    }
+    var valueDouble = double.tryParse(value.replaceAll('.', ''));
+    if (valueDouble! >= 500 && valueDouble <= 300000) {
+      return null;
+    }
+    return '';
+  }
 
   setValue(String amount) {
     value = double.tryParse(amount.replaceAll('.', ''));
