@@ -4,8 +4,8 @@ import '../ui/credit_result/route/credit_result_arguments.dart';
 import '../ui/credit_result/route/credit_result_route.dart';
 import '../ui/input_amount/route/input_amount_arguments.dart';
 import '../ui/input_amount/route/input_amount_route.dart';
-import '../ui/input_options/input_options_arguments.dart';
-import '../ui/input_options/input_options_route.dart';
+import '../ui/input_options/route/input_options_arguments.dart';
+import '../ui/input_options/route/input_options_route.dart';
 import '../ui/input_user/route/input_user_route.dart';
 
 class SimulatorCreditRouter extends StatelessWidget {

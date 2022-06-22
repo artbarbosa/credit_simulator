@@ -31,18 +31,33 @@ flutter:
 
   assets:
     - assets/images/
-  
+    - assets/gifs/
+
   fonts:
+
     - family: Aftika
       fonts:
         - asset: assets/fonts/aftika_bold.ttf
+
     - family: Vayu
       fonts:
         - asset: assets/fonts/VayuSans-Bold.ttf
+
     - family: Abitare
       fonts:
         - asset: assets/fonts/AbitareSans-700.ttf
-        
+
+    - family: Eloquia
+      fonts:
+        - asset: assets/fonts/Eloquia-ExtraBold.otf
+
+    - family: Cabrion
+      fonts:
+        - asset: assets/fonts/Cabrion-Regular.ttf
+        - asset: assets/fonts/Cabrion-Bold.ttf
+          weight: 700
+           
+
   # fonts:
   #   - family: Schyler
   #     fonts:

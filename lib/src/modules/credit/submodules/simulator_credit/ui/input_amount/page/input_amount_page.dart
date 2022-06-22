@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:rispar_credit_simulator/src/core/shared/ui/widget/custom_buttom.dart';
 
 import '../../../../../../../core/shared/consts/app_colors_const.dart';
-import '../../input_options/input_options_arguments.dart';
+import '../../../../../../../core/shared/consts/app_text_style_const.dart';
+import '../../input_options/route/input_options_arguments.dart';
 import '../controller/input_amount_controller.dart';
 import '../route/input_amount_arguments.dart';
 import '../utils/currency_value_mask.dart';
@@ -23,107 +24,90 @@ class InputValuePage extends StatelessWidget {
           value: 0.33,
         ),
       ),
-      body: Form(
-        key: controller.formKey,
-        child: Padding(
-          padding:
-              const EdgeInsets.only(left: 35, right: 35, bottom: 35, top: 20),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(
-                height: currentSize.height * 0.3,
-                child: Column(
-                  children: [
-                    RichText(
-                      text: const TextSpan(
-                        text: 'De quanto ',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontFamily: 'Aftika',
-                          color: AppColorsConst.primary,
-                          fontWeight: FontWeight.bold,
+      body: SingleChildScrollView(
+        child: Form(
+          key: controller.formKey,
+          child: SizedBox(
+            height: currentSize.height - 80,
+            child: Padding(
+              padding: const EdgeInsets.only(
+                  left: 30, right: 30, bottom: 35, top: 80),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  RichText(
+                    text: const TextSpan(
+                      text: 'De quanto ',
+                      style: AppTextStylesConst.titlesPrimary,
+                      children: [
+                        TextSpan(
+                          text: 'você precisa?',
+                          style: AppTextStylesConst.titlesBlack,
                         ),
-                        children: [
-                          TextSpan(
-                            text: 'você precisa?',
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontFamily: 'Aftika',
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                        ],
-                      ),
+                      ],
                     ),
-                    RichText(
-                      text: const TextSpan(
-                        text: 'De Quanto Voce Precisa ',
-                        style: TextStyle(
-                            color: Colors.grey, fontWeight: FontWeight.bold),
-                        children: [
-                          TextSpan(
-                            text: 'R\$500',
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
-                          ),
-                          TextSpan(
-                            text: ' a ',
-                            style: TextStyle(color: Colors.black),
-                          ),
-                          TextSpan(
-                            text: 'R\$300.000',
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold),
-                          ),
-                        ],
-                      ),
+                  ),
+                  const SizedBox(height: 4),
+                  RichText(
+                    text: TextSpan(
+                      text: 'Insira um valor entre ',
+                      style: AppTextStylesConst.subtitlesRegular,
+                      children: [
+                        const TextSpan(
+                          text: 'R\$500',
+                          style: AppTextStylesConst.subtitlesBold,
+                        ),
+                        TextSpan(
+                          text: ' a ',
+                          style: AppTextStylesConst.subtitlesRegular,
+                        ),
+                        const TextSpan(
+                          text: 'R\$300.000',
+                          style: AppTextStylesConst.subtitlesBold,
+                        )
+                      ],
                     ),
-                  ],
-                ),
-              ),
-              TextFormField(
-                initialValue: '5.000',
-                style: const TextStyle(
-                  fontFamily: 'Abitare',
-                  fontSize: 40,
-                  color: AppColorsConst.primary,
-                ),
-                keyboardType: const TextInputType.numberWithOptions(
-                    decimal: true, signed: false),
-                validator: controller.validateAmount,
-                onSaved: (amount) {
-                  if (amount != null) {
-                    controller.setValue(amount);
-                  }
-                },
-                inputFormatters: [
-                  CurrencyValueMask(decimal: '.'),
+                  ),
+                  const Spacer(),
+                  TextFormField(
+                    initialValue: '5.000',
+                    style: AppTextStylesConst.numberTitle,
+                    keyboardType: TextInputType.number,
+                    validator: controller.validateAmount,
+                    onSaved: (amount) {
+                      if (amount != null) {
+                        controller.setValue(amount);
+                      }
+                    },
+                    inputFormatters: [
+                      CurrencyValueMask(decimal: '.'),
+                    ],
+                    decoration: const InputDecoration(
+                        prefix: Text(
+                      'R\$ ',
+                      style: TextStyle(color: AppColorsConst.primary),
+                    )),
+                  ),
+                  const Spacer(),
+                  CustomButton(
+                    label: 'Continuar',
+                    onPressed: () {
+                      controller.onSavedAmount();
+                      Navigator.of(context).pushNamed(
+                        '/inputOptions',
+                        arguments: InputOptionsArguments(
+                          user: arguments.user,
+                          amountCreditModel: controller.amountCreditModel,
+                        ),
+                      );
+                    },
+                    width: currentSize.width,
+                  )
                 ],
-                decoration: const InputDecoration(
-                    prefix: Text(
-                  'R\$ ',
-                  style: TextStyle(color: AppColorsConst.primary),
-                )),
               ),
-              CustomButton(
-                  label: 'Continuar',
-                  onPressed: () {
-                    controller.onSavedAmount();
-                    Navigator.of(context).pushNamed(
-                      '/inputOptions',
-                      arguments: InputOptionsArguments(
-                        user: arguments.user,
-                        amountCreditModel: controller.amountCreditModel,
-                      ),
-                    );
-                  },
-                  currentSize: currentSize)
-            ],
+            ),
           ),
         ),
       ),
